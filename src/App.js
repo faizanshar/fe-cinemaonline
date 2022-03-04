@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import "bootstrap/dist/css//bootstrap.min.css";
+import { useEffect } from "react";
+
+// pages
+import Home from "./pages/Home/Home";
+import DetailFilm from "./pages/DetailFilm/DetailFilm";
+import Profile from "./pages/Profile/Profile";
+import MyFilm from "./pages/MyFilm/MyFilm";
+import AddFilm from "./pages/AddFilm/AddFilm";
+import EditProfile from "./pages/EditProfile/EditProfile";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:id" element={<DetailFilm />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/edit-profile" element={<EditProfile />} />
+      <Route path="/my-film" element={<MyFilm />} />
+      <Route path="/add-film" element={<AddFilm />} />
+    </Routes>
   );
 }
 
